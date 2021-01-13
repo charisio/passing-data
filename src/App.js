@@ -109,8 +109,13 @@ class App extends Component {
 		{profiles.map((profile) => {
          const matchedUser = Object.values(users).filter(user => user.id.toString() === profile.userID)[0];
 		 const matchedMovie = Object.values(movies).filter(movie => movie.id.toString() === profile.favoriteMovieID)[0];
+
           return (
-          	<p>{matchedUser.name}'s favorite movie is {matchedMovie.name}</p>
+            <ul>
+            {matchedUser && matchedMovie &&
+          		<li key={profile.id}>{`${matchedUser.name}'s favorite movie is ${matchedMovie.name}`}</li>
+            }
+			</ul>
 		)})}
       </div>
     );

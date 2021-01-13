@@ -106,6 +106,12 @@ class App extends Component {
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
         <h2>Favorite Movies</h2>
+		{profiles.map((profile) => {
+         const matchedUser = Object.values(users).filter(user => user.id.toString() === profile.userID)[0];
+		 const matchedMovie = Object.values(movies).filter(movie => movie.id.toString() === profile.favoriteMovieID)[0];
+          return (
+          	<p>{matchedUser.name}'s favorite movie is {matchedMovie.name}</p>
+		)})}
       </div>
     );
   }
